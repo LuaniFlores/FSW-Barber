@@ -1,6 +1,11 @@
+"use client";
+
+import { Button } from "./_components/ui/button";
+
+
 // SERVER COMPONENTS
-const About = () => {
-  return <h1> About Page </h1>;
+const Home = () => {
+  return <Button>oi</Button>
 };
 
-export default About;
+export default Home;
