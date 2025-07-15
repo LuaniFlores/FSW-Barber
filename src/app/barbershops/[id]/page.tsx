@@ -5,6 +5,7 @@ import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import PhoneItem from "@/app/_components/phone-item"
 
 interface BarbershopPageProps {
   params: {
@@ -58,6 +59,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         </Button>
       </div>
 
+      {/*TÍTULO*/}
       <div className="border-b border-solid p-5">
         <h1 className="mb-3 text-xl font-bold">{barbershop.name}</h1>
         <div className="mb-2 flex items-center gap-2">
@@ -72,11 +74,12 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
       </div>
 
       {/*DESCRIÇÃO*/}
-      <div className="space-y-2 border-b border-solid p-5">
+      <div className="space-y-3 border-b border-solid p-5">
         <h2 className="text-xs font-bold uppercase text-gray-400">Sobre nós</h2>
         <p className="text-justify text-sm">{barbershop?.description}</p>
       </div>
 
+      {/*SERVIÇOS*/}
       <div className="space-y-3 p-5">
         <h2 className="mb-3 text-xs font-bold uppercase text-gray-400">
           Serviços
@@ -86,6 +89,13 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
             <ServiceItem key={service.id} service={service} />
           ))}
         </div>
+      </div>
+
+      {/*CONTATO*/}
+      <div className="space-y-3 p-5">
+        {barbershop.phones.map((phone) => (
+          <PhoneItem key={phone} phone={phone} />
+        ))}
       </div>
     </div>
   )
